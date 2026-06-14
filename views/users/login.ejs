@@ -1,0 +1,320 @@
+<!-- <% layout("/layouts/boilerplate") %>
+
+<div class="row mt-2">
+    <h1 class="col-6 offset-3">Login</h1>
+   <div class="col-6 offset-3">
+     <form action="/login" method="POST" novalidate class="needs-validation">
+        <div class="mb-3">
+             <label for="username" class="form-label">Username</label>
+             <input name="username" id="username" type="text" class="form-control" required>
+        </div>
+
+         <div class="mb-3">
+             <label for="password" class="form-label">Password</label>
+             <input name="password" id="password" type="password" class="form-control" required>
+        </div>
+        <button class="btn btn-success">Login</button>
+     </form>  
+    </div>
+</div> -->
+
+<!-- <% layout("/layouts/boilerplate") %>
+
+<style>
+  .auth-wrap {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+  .auth-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 420px;
+  }
+  .auth-heading {
+    font-size: 22px;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 0.25rem;
+  }
+  .auth-sub {
+    font-size: 14px;
+    color: #888;
+    margin: 0 0 1.75rem;
+  }
+  .auth-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .auth-field {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .auth-field i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+  }
+  .auth-field input {
+    width: 100%;
+    padding: 10px 12px 10px 38px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #222;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .auth-field input:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 3px rgba(254,66,77,0.1);
+  }
+  .auth-btn {
+    width: 100%;
+    background: #fe424d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.15s;
+  }
+  .auth-btn:hover { background: #e03040; }
+  .auth-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-top: 1.25rem;
+  }
+  .auth-footer a {
+    color: #fe424d;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .auth-footer a:hover { text-decoration: underline; }
+</style>
+
+<div class="auth-wrap">
+  <div class="auth-card">
+
+    <p class="auth-heading">Login</p>
+    <p class="auth-sub">Welcome back, sign in to continue</p>
+
+    <form action="/login" method="POST" novalidate class="needs-validation">
+
+      <label class="auth-label" for="username">Username</label>
+      <div class="auth-field">
+        <i class="fa-solid fa-user"></i>
+        <input name="username" id="username" type="text" placeholder="Your username" required />
+      </div>
+
+      <label class="auth-label" for="password">Password</label>
+      <div class="auth-field">
+        <i class="fa-solid fa-lock"></i>
+        <input name="password" id="password" type="password" placeholder="••••••••" required />
+      </div>
+
+      <button class="auth-btn" type="submit">Log in</button>
+    </form>
+
+    <div class="auth-footer">
+      Don't have an account? <a href="/signup">Sign up</a>
+    </div>
+
+  </div>
+</div> -->
+
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  .auth-wrap {
+    display: flex;
+    min-height: 85vh;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 2rem auto;
+    max-width: 900px;
+  }
+
+  /* Left image side */
+  .auth-image {
+    flex: 1;
+   background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 400px;
+  }
+  .auth-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+  }
+  .auth-image-overlay h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+  }
+  .auth-image-overlay p {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /* Right form side */
+  .auth-form-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    background: #fff;
+  }
+  .auth-form-inner {
+    width: 100%;
+    max-width: 340px;
+  }
+  .auth-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 0.25rem;
+  }
+  .auth-sub {
+    font-size: 14px;
+    color: #888;
+    margin: 0 0 1.75rem;
+  }
+  .auth-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .auth-field {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .auth-field i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+  }
+  .auth-field input {
+    width: 100%;
+    padding: 10px 12px 10px 38px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #222;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .auth-field input:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 3px rgba(254,66,77,0.1);
+  }
+  .auth-btn {
+    width: 100%;
+    background: #fe424d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.15s;
+  }
+  .auth-btn:hover { background: #e03040; }
+  .auth-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-top: 1.25rem;
+  }
+  .auth-footer a {
+    color: #fe424d;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .auth-footer a:hover { text-decoration: underline; }
+
+  /* Responsive — stack on mobile */
+  @media (max-width: 640px) {
+    .auth-wrap { flex-direction: column; margin: 1rem; }
+    .auth-image { min-height: 200px; flex: none; }
+  }
+</style>
+
+<div class="auth-wrap">
+
+  <!-- Left: image -->
+  <div class="auth-image">
+    <div class="auth-image-overlay">
+      <h2>Find your perfect stay</h2>
+      <p>Thousands of homes, cottages & retreats waiting for you.</p>
+    </div>
+  </div>
+
+  <!-- Right: form -->
+  <div class="auth-form-side">
+    <div class="auth-form-inner">
+
+      <p class="auth-heading">Welcome back</p>
+      <p class="auth-sub">Sign in to continue exploring stays</p>
+
+      <form action="/login" method="POST" novalidate class="needs-validation">
+
+        <label class="auth-label" for="username">Username</label>
+        <div class="auth-field">
+          <i class="fa-solid fa-user"></i>
+          <input name="username" id="username" type="text" placeholder="Your username" required />
+        </div>
+
+        <label class="auth-label" for="password">Password</label>
+        <div class="auth-field">
+          <i class="fa-solid fa-lock"></i>
+          <input name="password" id="password" type="password" placeholder="••••••••" required />
+        </div>
+
+        <button class="auth-btn" type="submit">Log in</button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="/signup">Sign up</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>

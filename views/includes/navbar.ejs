@@ -1,0 +1,160 @@
+<style>
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0.4rem 1rem;
+    white-space: nowrap;
+    border: none;
+  }
+  .search-btn:hover {
+    background-color: #e03040;
+    color: #fff;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #ff385c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .username {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+
+  @media (max-width: 767px) {
+    #navbarNavAltMarkup {
+      border-top: 1px solid #dee2e6;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .nav-search-form {
+      width: 100%;
+      margin-bottom: 0.75rem;
+    }
+
+    .nav-search-form form {
+      display: flex;
+      width: 100%;
+      gap: 0.4rem;
+    }
+
+    .nav-search-form .search-inp {
+      flex: 1;
+    }
+
+    .nav-right {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: 0.1rem;
+    }
+
+    .nav-right .nav-link,
+    .nav-right a {
+      padding: 0.4rem 0;
+      width: 100%;
+    }
+
+    .user-profile {
+      padding: 0.4rem 0;
+    }
+  }
+
+
+</style>
+
+<nav class="navbar navbar-expand-md bg-light border-bottom sticky-top">
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" href="/listings">
+      <i class="fa-sharp fa-solid fa-house-user me-1"></i>Stay<span class="hub">Hub</span>
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- Search -->
+      <div class="nav-search-form mx-md-auto">
+        <form class="d-flex" role="search" action="/listings/search" method="GET">
+          <input
+            class="form-control search-inp me-2"
+            type="search"
+            name="q"
+            placeholder="Search destinations"
+          />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass me-1"></i>Search
+          </button>
+        </form>
+      </div>
+
+      <!-- Right side -->
+      <div class="nav-right ms-md-auto">
+
+        <% if(currUser){ %>
+          <div class="user-profile">
+            <div class="avatar">
+              <%= currUser.username.charAt(0).toUpperCase() %>
+            </div>
+            <span class="username"><%= currUser.username %></span>
+          </div>
+        <% } %>
+
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+
+        <% if(!currUser){ %>
+          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>
+
+        <% if(currUser){ %>
+          <a class="nav-link logout-link" href="/logout"><b>Log out</b></a>
+        <% } %>
+
+      </div>
+
+    </div>
+  </div>
+</nav>
