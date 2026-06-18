@@ -50,7 +50,7 @@ store.on("error", (err) => {
 // ✅ 2. Define sessionOptions SECOND
 const sessionOptions = {
     store,
-    secret: process.env.SECRET,
+    secret: process.env.SECRET, // ✅ fallback
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -89,6 +89,10 @@ app.use((req, res, next) => {
 });
 
 // ✅ 7. Routes LAST
+// Add this route before your other routes
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);

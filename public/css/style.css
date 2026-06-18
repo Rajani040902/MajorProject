@@ -150,6 +150,20 @@ body {
     color: white !important;
 }
 
+/* Review cards - mobile fix */
+.review-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .card.col-5 {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
 .logout-link {
     color: #fe424d !important;
 }

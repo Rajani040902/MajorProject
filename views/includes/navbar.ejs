@@ -133,14 +133,16 @@
       <!-- Right side -->
       <div class="nav-right ms-md-auto">
 
-        <% if(currUser){ %>
+         
+         <% if(currUser){ %>   
           <div class="user-profile">
             <div class="avatar">
               <%= currUser.username.charAt(0).toUpperCase() %>
             </div>
             <span class="username"><%= currUser.username %></span>
           </div>
-        <% } %>
+       <% } %>  
+        
 
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
 
